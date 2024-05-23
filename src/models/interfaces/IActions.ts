@@ -57,6 +57,8 @@ export interface IAction {
 	hold_time?: number;
 	repeat_delay?: number;
 	double_tap_window?: number;
+
+	label?: string; // New property for the text label
 }
 
 export interface IActions {
@@ -79,6 +81,8 @@ export interface IActions {
 
 	momentary_start_action?: IAction;
 	momentary_end_action?: IAction;
+
+	label?: string; // New property for the text label
 }
 
 export type ActionType =
