@@ -27,6 +27,8 @@ export interface IConfig {
 	double_tap_window?: number;
 
 	rows?: Row[];
+
+	button_label?: string; // New property for the text label
 }
 
 export type Row = (string | Row[])[];
