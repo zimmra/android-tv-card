@@ -8,6 +8,7 @@ import { BaseRemoteElement } from './base-remote-element';
 export class RemoteButton extends BaseRemoteElement {
 	@property({ attribute: false }) actionKey!: string;
 	@property({ attribute: false }) icons!: Record<string, string>;
+	@property({ attribute: false }) label?: string; // New property for the text label
 
 	clickTimer?: ReturnType<typeof setTimeout>;
 	clickCount: number = 0;
@@ -226,6 +227,7 @@ export class RemoteButton extends BaseRemoteElement {
 				.path=${svgPath}
 			>
 				${haIcon}${inputTemplate}
+				${this.label ? html`<div class="button-label">${this.label}</div>` : ''}
 			</ha-icon-button>
 		`;
 	}
@@ -254,6 +256,10 @@ export class RemoteButton extends BaseRemoteElement {
 					--mdc-icon-size: var(--size);
 					--mdc-icon-button-size: var(--size);
 					-webkit-tap-highlight-color: transparent;
+				}
+				.button-label {
+					font-size: 12px;
+					margin-top: 4px;
 				}
 			`,
 		];
